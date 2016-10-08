@@ -1,0 +1,17 @@
+{
+    "name": "moveissimonetti/migrate-jira-github",
+    "description": "Migration tool",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2",
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "viniciusss",
+            "email": "viniciusss@me.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
