@@ -14,7 +14,7 @@ $statics = [
 ];
 
 foreach ($statusFiles as $statusFile) {
-    if (in_array($statusFile, ['.', '..'])) {
+    if (in_array($statusFile, ['.', '..', '.gitkeep'])) {
         continue;
     }
 
