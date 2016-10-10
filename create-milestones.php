@@ -6,20 +6,23 @@ $githubClient = GithubClient::instance();
 $projects = getProjects();
 $createdMilestones = $githubClient->get('milestones');
 
-$milestonesIds = array_column($createdMilestones, 'title');
-
 foreach($projects as &$project) {
 
     $title = sprintf('%s - %s', $project['key'], $project['name']);
-
-    if(in_array($title, $milestonesIds)) {
-        continue;
-    }
 
     $milestone = [
         'title' => $title,
         'description' => $project['description']
     ];
+
+    foreach ($createdMilestones as $createdMilestone) {
+        if ($createdMilestone['title'] == $title) {
+            $milestone['id'] = $createdMilestone['number'];
+            $project['milestone'] = $milestone;
+            continue 2;
+        }
+    }
+
 
     $data = $githubClient->post('milestones', $milestone);
 

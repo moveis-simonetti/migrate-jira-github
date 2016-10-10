@@ -72,7 +72,7 @@ class GithubClient
         return json_decode($response->getBody(), true);
     }
 
-    public static function instance()
+    public static function instance() : GithubClient
     {
         if (is_null(static::$instance)) {
             static::$instance = new GithubClient();
