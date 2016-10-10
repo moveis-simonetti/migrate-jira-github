@@ -3,12 +3,13 @@ require_once __DIR__ . '/bootstrap.php';
 
 $githubClient = \Simonetti\Migrate\ClientFactory::getGithubClient();
 
-$issues = getAllIssues();
+$issues = getAllSubTasks();
 
 $createdIssues = [];
 
 foreach($issues as $issue) {
     $parent = $issue['issue']['parent'];
+
     $jiraId = $issue['issue']['jira_id'];
     $fileStatus = __DIR__ . '/data/issues/' . $jiraId . '.status.json';
 
@@ -16,8 +17,18 @@ foreach($issues as $issue) {
         continue;
     }
 
+    $parentData = getMapData($parent);
+
+    if (!$parentData) {
+        printf('Nao foi encontrado os dados de mapeamento da tarefa pai: %s %s', $parent, PHP_EOL);
+        continue;
+    }
+
+    $issue['issue']['body'] .= sprintf('%s%sconnect to #%d', PHP_EOL, PHP_EOL, $parentData['githubId']);
+
     unset($issue['issue']['jira_id']);
     unset($issue['issue']['parent']);
+
     try {
         $response = $githubClient->post('import/issues', $issue);
         $createdIssues[$jiraId] = [

@@ -1,6 +1,0 @@
-return [
-    'login_jira' => [
-        'login' => 'login_github',
-        'key' => 'key_github',
-    ],
-];

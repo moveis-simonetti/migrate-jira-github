@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/bootstrap.php';
 
-$githubClient = GithubClient::instance();
+$githubClient = \Simonetti\Migrate\ClientFactory::getGithubClient();
 
 $projects = getProjects();
 $createdMilestones = $githubClient->get('milestones');

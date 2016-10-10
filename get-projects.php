@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/bootstrap.php';
 
-$jiraClient = JiraClient::instance();
+$jiraClient = \Simonetti\Migrate\ClientFactory::getJiraClient();
 
 $response = $jiraClient->get('project?expand=description');
 

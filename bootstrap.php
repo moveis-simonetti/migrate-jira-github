@@ -1,38 +1,10 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/src/HttpClient.php';
-require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/src/functions.php';
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
-define('USUARIOS', include_once __DIR__ . '/users.php');
-
-function getProjects()
-{
-    return json_decode(
-        file_get_contents(__DIR__ . '/data/projects.json'),
-        true
-    );
-}
-
-function getIssues($project)
-{
-    return json_decode(
-        file_get_contents(__DIR__ . '/data/projects/' . $project . '-issues.json'),
-        true
-    ); 
-}
-
-function getUser($login)
-{
-    return USUARIOS[$login];
-}
-
-function getAllIssues()
-{
-    return json_decode(
-        file_get_contents(__DIR__ . '/data/issues.json'),
-        true
-    );
-}
+define('USERS', include_once __DIR__ . '/configs/users.php');
+define('RESOLUTIONS', include_once __DIR__ . '/configs/resolutions.php');
+define('STATUS_MAP', include_once __DIR__ . '/configs/status-map.php');

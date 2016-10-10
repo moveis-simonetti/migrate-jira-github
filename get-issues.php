@@ -1,13 +1,11 @@
 <?php
 require_once __DIR__ . '/bootstrap.php';
 
-$jiraClient = JiraClient::instance();
+$jiraClient = \Simonetti\Migrate\ClientFactory::getJiraClient();
 
 $projects = getProjects();
 
 $issuesCount = 0;
-
-//    $response = $client->get($_SERVER['JIRA_URL'] . "/rest/api/2/search?jql=" . urlencode("") . "" .  . "&startAt=" . $startAt, $jiraHeaders);
 
 foreach($projects as $project) {
 

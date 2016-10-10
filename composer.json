@@ -13,5 +13,10 @@
             "email": "viniciusss@me.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Simonetti\\Migrate\\": "src/"
+        }
+    }
 }
