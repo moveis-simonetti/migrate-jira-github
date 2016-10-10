@@ -8,3 +8,4 @@ $dotenv->load();
 define('USERS', include_once __DIR__ . '/configs/users.php');
 define('RESOLUTIONS', include_once __DIR__ . '/configs/resolutions.php');
 define('STATUS_MAP', include_once __DIR__ . '/configs/status-map.php');
+define('ISSUETYPES_MAP', include_once __DIR__ . '/configs/issuetypes-map.php');

@@ -7,6 +7,7 @@ $mappedIssues = [];
 $subTaks = [];
 $resolutions = RESOLUTIONS;
 $statusMap = STATUS_MAP;
+$issueTypesMap = ISSUETYPES_MAP;
 
 foreach($projects as $project) {
 
@@ -15,7 +16,9 @@ foreach($projects as $project) {
     foreach($issues as $issue) {
 
         $closed = false;
-        $labels = [$issue['type']];
+        $labels = [
+            $issueTypesMap[$issue['type']]
+        ];
 
         if (isset($issue['resolution']['name'])) {
             $closed = in_array($issue['resolution']['name'], $resolutions);

@@ -1,8 +1,8 @@
 .env
 /data/
 /vendor/
-users.php
 /.idea/
 /configs/resolutions.php
 /configs/status-map.php
 /configs/users.php
+/configs/issuetypes-map.php

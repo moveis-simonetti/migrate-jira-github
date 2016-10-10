@@ -1,0 +1,29 @@
+<?php
+
+define('ISSUETYPE_BUG', 'Bug');
+define('ISSUETYPE_EPIC', 'Epic');
+define('ISSUETYPE_HISTORY', 'História');
+define('ISSUETYPE_IMPROVEMENT', 'Melhoria');
+define('ISSUETYPE_NEW_FEATURE', 'NovoRecurso');
+define('ISSUETYPE_TASK', 'Tarefa');
+define('ISSUETYPE_SUB_TASK', 'Sub-tarefa');
+
+return [
+    'Bug' => ISSUETYPE_BUG,
+    'Erro' => ISSUETYPE_BUG,
+    'Chamado' => ISSUETYPE_BUG,
+    'Epic' => ISSUETYPE_EPIC,
+    'Projeto' => ISSUETYPE_EPIC,
+    'História' => ISSUETYPE_HISTORY,
+    'Improvement' => ISSUETYPE_IMPROVEMENT,
+    'Melhoria' => ISSUETYPE_IMPROVEMENT,
+    'New Feature' => ISSUETYPE_NEW_FEATURE,
+    'Novo Recurso' => ISSUETYPE_NEW_FEATURE,
+    'Problema' => ISSUETYPE_BUG,
+    'Story' => ISSUETYPE_HISTORY,
+    'Tarefa' => ISSUETYPE_TASK,
+    'Task' => ISSUETYPE_TASK,
+    'Sub-tarefa' => ISSUETYPE_SUB_TASK,
+    'Sub-tarefas' => ISSUETYPE_SUB_TASK,
+    'Sub-task' => ISSUETYPE_SUB_TASK,
+];
