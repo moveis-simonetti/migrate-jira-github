@@ -86,7 +86,7 @@ function getStatus($jiraId)
 function getMapData($jiraId)
 {
     try {
-        return getJsonData('map/' . $jiraId . '.json');
+        return getJsonData('map/' . $jiraId);
     } catch (\Simonetti\Migrate\FileNotFoundExeception $e) {
         return false;
     }
