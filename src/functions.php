@@ -16,6 +16,9 @@ function getLogin($name) {
     return $_SERVER['GITHUB_USERNAME'];
 }
 
+/**
+ * @link https://github.com/doctrine/jira-github-issues/blob/master/jira_markdown.php
+ */
 function toMarkdown($text) {
     $converted = $text;
     $converted = preg_replace_callback('/^h([0-6])\.(.*)$/m', function ($matches) {

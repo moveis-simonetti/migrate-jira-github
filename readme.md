@@ -1,5 +1,7 @@
 # Migrate
 
+Based on https://github.com/doctrine/jira-github-issues/
+
 ## Prerequisites
 
 ### Composer
