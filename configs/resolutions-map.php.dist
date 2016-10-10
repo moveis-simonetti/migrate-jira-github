@@ -1,0 +1,16 @@
+<?php
+return [
+    'Done' => 'Finalizada',
+    'Resolved' => 'Finalizada',
+    'Closed' => 'Finalizada',
+    'Concluído' => 'Finalizada',
+    'Fixed' => 'Finalizada',
+    'Duplicate' => 'Duplicada',
+    'Incomplete' => 'Incompleta',
+    'Cannot Reproduce' => 'Incompleta',
+    'Won\'t Do' => 'Abortada',
+    'Won\'t Fix' => 'Incompleta',
+    'Não será feito' => 'Abortada',
+    'Duplicado' => 'Duplicada',
+    'Não pode Reproduzir' => 'Incompleta',
+];

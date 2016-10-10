@@ -2,7 +2,7 @@
 /data/
 /vendor/
 /.idea/
-/configs/resolutions.php
+/configs/resolutions-map.php
 /configs/status-map.php
 /configs/users.php
 /configs/issuetypes-map.php
