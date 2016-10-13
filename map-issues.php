@@ -10,23 +10,35 @@ $statusMap = STATUS_MAP;
 $issueTypesMap = ISSUETYPES_MAP;
 $resolutionsMap = RESOLUTIONS_MAP;
 
-foreach($projects as $project) {
+foreach ($projects as $project) {
 
     $issues = getIssues($project['key']);
 
-    foreach($issues as $issue) {
+    foreach ($issues as $issue) {
 
         $closed = false;
         $labels = [
             $issueTypesMap[$issue['type']]
         ];
 
+        $status = $statusMap[$issue['status']];
+
+
+
         if (isset($issue['resolution']['name'])) {
             $closed = in_array($issue['resolution']['name'], $resolutions);
             $labels[] = $resolutionsMap[$issue['resolution']['name']];
         }
 
-        $labels[] = $statusMap[$issue['status']];
+        if(STATUS_CLOSED != $status && $closed) {
+            $closed = false;
+        }
+
+        if(!$_SERVER['IMPORT_CLOSED_ISSUES']) {
+            continue;
+        }
+
+        $labels[] = $status;
 
         $labels = array_unique($labels);
 
@@ -46,7 +58,7 @@ foreach($projects as $project) {
                 'parent' => $issue['parent'],
                 'milestone' => $project['milestone']['id'],
             ],
-            'comments' => array_map(function($comment) {
+            'comments' => array_map(function ($comment) {
                 $createdAt = isset($comment['created']) ? $comment['created'] : $comment['created_at'];
 
                 if (!empty($comment['author'])) {
@@ -64,7 +76,7 @@ foreach($projects as $project) {
             }, $issue['comments']),
         ];
 
-        if($issue['parent']) {
+        if ($issue['parent']) {
             $subTaks[] = $import;
         } else {
             $mappedIssues[] = $import;
@@ -72,5 +84,5 @@ foreach($projects as $project) {
     }
 }
 
-file_put_contents(__DIR__ . '/data/issues.json', json_encode($mappedIssues));
-file_put_contents(__DIR__ . '/data/subtaks.json', json_encode($subTaks));
+file_put_contents(__DIR__ . '/data/issues_2.json', json_encode($mappedIssues));
+file_put_contents(__DIR__ . '/data/subtasks_2.json', json_encode($subTaks));
